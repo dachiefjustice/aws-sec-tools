@@ -1,10 +1,10 @@
 # AWS Security Auditing Container
 ---
 
-## General
+## Background
 This Docker container aims to ease the process of auditing AWS environments for security issues. It bundles handy open-source AWS security analysis tools (plus the AWS CLI/Shell), handles their installation/dependencies, and provides a convenience launcher script. The focus is on finding issues by interrogating AWS APIs and analyzing the results (rather than e.g. looking inside EC2 instances, at application code, or other resources that are opaque to the AWS APIs).
 
-## Tools
+## Tools Included
 Thanks to the tool authors for their efforts!
 
 - [AWS CLI](https://aws.amazon.com/cli/): manually interrogate AWS APIs
@@ -21,14 +21,14 @@ Thanks to the tool authors for their efforts!
 - Read-only AWS credentials (convenient if they're in `~/.aws` on your Docker host)
 - Internet access (for tool/dependency installation, and running tools)
 
-## Building
+## Building the Container
 On a host meeting the prereqs:
 
 1. Clone this repo: `git clone https://github.com/mimestyping/aws-sec-tools aws-sec-tools && cd aws-sec-tools` (or manually download/extract)
 2. Build the container from the directory containing the Dockerfile: `docker build -t aws-sec-tools:01 .` (or whatever tag you want)
 3. (Optional, but recommended) Make a directory for storing tool output: `mkdir ~/aws-reports`
 
-## Running
+## Running the Container
 Once you have the container built, on a host meeting the prereqs:
 
 1. Run the container interactively. It's easiest to bind-mount your AWS dir and a reports dir into the container (adjust container name/tag and volume mounts as needed): `docker run -it -v ~/.aws:/home/awssec/.aws -v ~/aws-reports:/home/awssec/reports aws-sec-tools:01` 
