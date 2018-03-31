@@ -51,7 +51,7 @@ Inside an interactive shell in the container:
 ## Notes
 - Familiarize yourself with the tools included in this image before running them.
 - Use read-only AWS credentials. The AWS-managed SecurityAudit policy (arn:aws:iam::aws:policy/SecurityAudit) is a good starting point; customize as appropriate to your AWS environment/the tools you're using.
-- To get the latest tool versions, delete the container image and re-build. The Dockerfile installs each tool via pip or clones the tool's master branch from GitHub.
+- To get the latest tool versions, delete the container image and re-build. The Dockerfile installs each tool via pip or clones the tool's GitHub default branch.
 - Some tools launch automatically when invoked from the tool launcher script (they're labeled as such in the launcher).
 - CloudSploit Scans needs AWS credentials, but doesn't check ~/.aws/credentials for them. The tool launcher script assumes you're using an IAM user (rather than role or other temporary credential), prompts for access key and secret key, and sets the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables before invoking the tool. Alternately, set the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` environment variables, then run the tool manually.
 - To manually run a tool, `cd` into the tool's directory (under ~) and (for Python-based tools with a `~/toolname/bin` directory) activate the tool's virtualenv with `source ~/toolname/bin/activate`. `deactivate` when you're done using a tool with a virtualenv.
