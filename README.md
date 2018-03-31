@@ -24,7 +24,7 @@ Thanks to the tool authors for their efforts!
 ## Building the Container
 On a host meeting the prereqs:
 
-1. Clone this repo: `git clone https://github.com/mimestyping/aws-sec-tools aws-sec-tools && cd aws-sec-tools` (or manually download/extract)
+1. Clone this repo: `git clone https://github.com/dachiefjustice/aws-sec-tools aws-sec-tools && cd aws-sec-tools` (or manually download/extract)
 2. Build the container from the directory containing the Dockerfile: `docker build -t aws-sec-tools:01 .` (or whatever tag you want)
 3. (Optional, but recommended) Make a directory for storing tool output: `mkdir ~/aws-reports`
 

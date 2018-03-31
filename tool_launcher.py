@@ -10,7 +10,7 @@ container_aws_dir = "/home/awssec/.aws"
 # Messages for the user
 tool_selection_message = """
 ========================================
-This convenience script changes to tool installation directories, activates the tool's virtualenv (if needed), and either prints the tool's help message or launches the tool (depending how the tool is written). See README.md or https://github.com/mimestyping/aws-sec-tools for more info.
+This convenience script changes to tool installation directories, activates the tool's virtualenv (if needed), and either prints the tool's help message or launches the tool (depending how the tool is written). See README.md or https://github.com/dachiefjustice/aws-sec-tools for more info.
 
 Tools available:
 1. Scout2 (print help, enter virtualenv)

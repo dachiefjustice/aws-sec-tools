@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-# Source repo: https://github.com/mimestyping/aws-sec-tools
+# Source repo: https://github.com/dachiefjustice/aws-sec-tools
 # Purpose: bundle tools for performing AWS platform-layer security audits
 
 # Install system-wide packages as root:
