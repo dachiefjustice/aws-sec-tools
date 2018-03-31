@@ -33,14 +33,20 @@ Once you have the container built, on a host meeting the prereqs:
 
 1. Run the container interactively. It's easiest to bind-mount your AWS dir and a reports dir into the container (adjust container name/tag and volume mounts as needed): `docker run -it -v ~/.aws:/home/awssec/.aws -v ~/aws-reports:/home/awssec/reports aws-sec-tools:01` 
 2. Decide if you want want to run a tool manually, or use the launcher to get started quickly.
-  - Manual tool launch:
-    - `cd ~/toolname`
-    - (For Python-based tools, i.e. most of them) Activate the virtualenv: `source ~/toolname/bin/activate`
-    - Run the tool 
-  - Use the tool launcher script:
-    - `./tool_launcher.py`
-    - Select the tool you want to run
-    - After running a tool from the launcher, you might find yourself in the tool's virtualenv (handy for re-running the tool with different parameters, maybe to redirect STDOUT to a file in `~/reports`, etc.). Alternately, `exit` the bash shell invoked by the launcher script, re-run `~/tool_launcher.py`, and choose another tool.
+
+### Manual Tool Launch
+Inside an interactive shell in the container:
+
+1. `cd ~/toolname`
+2. (For Python-based tools, i.e. most of them) Activate the virtualenv: `source ~/toolname/bin/activate`
+3. Run the tool
+
+### Tool Launcher Convenience Script
+Inside an interactive shell in the container:
+
+1. `./tool_launcher.py`
+2. Select the tool you want to run
+3. After running a tool from the launcher, you might find yourself in the tool's virtualenv (handy for re-running the tool with different parameters, maybe to redirect STDOUT to a file in `~/reports`, etc.). Alternately, `exit` the bash shell invoked by the launcher script, re-run `~/tool_launcher.py`, and choose another tool.
  
 ## Notes
 - Familiarize yourself with the tools included in this image before running them.
