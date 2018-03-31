@@ -38,8 +38,9 @@ Once you have the container built, on a host meeting the prereqs:
 Inside an interactive shell in the container:
 
 1. `cd ~/toolname`
-2. (For Python-based tools, i.e. most of them) Activate the virtualenv: `source ~/toolname/bin/activate`
+2. Activate the virtualenv: `source ~/toolname/bin/activate` (for Python-based tools, i.e. most of them)
 3. Run the tool
+4. Deactivate the virtualenv: `deactivate` (for Python-based tools)
 
 ### Tool Launcher Convenience Script
 Inside an interactive shell in the container:
