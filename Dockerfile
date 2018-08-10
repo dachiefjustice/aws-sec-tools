@@ -13,7 +13,7 @@ FROM alpine:latest
 RUN apk add --no-cache --update git bash curl \
     python2 py2-virtualenv py2-pip python3 \
     tmux groff less \
-    nodejs
+    nodejs nodejs-npm
 
 # No need to run as root after this point
 RUN addgroup -g 1000 -S awssec && \
@@ -69,6 +69,10 @@ WORKDIR /home/awssec/
 
 # Copy the wrapper script into the container
 COPY ./tool_launcher.py .
+USER root:root
+RUN chown awssec:awssec tool_launcher.py && \
+    chmod 770 tool_launcher.py
+USER awssec:awssec
 
 # Launch the wrapper script
 CMD ["/bin/bash"]
