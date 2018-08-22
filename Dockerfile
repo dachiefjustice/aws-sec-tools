@@ -42,6 +42,14 @@ RUN python3 -m venv scout2 && \
     pip3 install python-dateutil==2.6.1 && \
     deactivate
 
+# Set up Pacu in a virtualenv
+RUN git clone https://github.com/RhinoSecurityLabs/pacu.git && \
+    python3 -m venv pacu && \
+    source ~/pacu/bin/activate && \
+    cd ~/pacu/ && \
+    bash ~/pacu/install.sh && \
+    deactivate
+
 # Set up AWSBucketDump in a virtualenv
 RUN git clone https://github.com/jordanpotti/AWSBucketDump.git awsbucketdump && \ 
     python3 -m venv awsbucketdump && \

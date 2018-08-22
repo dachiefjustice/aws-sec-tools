@@ -14,6 +14,7 @@ Thanks to the tool authors for their efforts!
 - [CloudSploit Scans](https://github.com/cloudsploit/scans): call various AWS APIs, assess security posture, report to STDOUT 
 - [s3-inspector](https://github.com/kromtech/s3-inspector): examine S3 bucket permissions, report to STDOUT
 - [AWS Bucket Dump](https://github.com/jordanpotti/AWSBucketDump): unauthenticated, wordlist-based S3 bucket enumeration and loot search.
+- [Pacu](https://github.com/RhinoSecurityLabs/pacu): AWS exploitation framework. "Metasploit for AWS"
 
 ## Prerequisites
 - Docker (for building/running the container)
