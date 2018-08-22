@@ -20,9 +20,10 @@ Tools available:
 5. AWS Bucket Dump (print help, enter virtualenv)
 6. AWS CLI (enter virtualenv)
 7. AWS Shell (enter virtualenv, launch shell)
+8. Pacu (enter virtualenv, launch shell)
 ========================================
 
-Which tool would you like (1-7)? """
+Which tool would you like (1-8)? """
 
 credfile_found_message = """========================================
 Found probable AWS credentials at " + aws_credfile_path + ",  most bundled tools will use this."
@@ -47,7 +48,7 @@ def validate_tool_selection(user_input):
   except ValueError:
     valid_input = False
   
-  if selected_tool_num in range(1,8):
+  if selected_tool_num in range(1,9):
     valid_input = True
   
   return valid_input
@@ -95,6 +96,9 @@ elif user_tool_num == 6: # AWS CLI
   sys.exit(0)
 elif user_tool_num == 7: # AWS Shell
   os.system("cd awsshell; source bin/activate; aws-shell")
+  sys.exit(0)
+elif user_tool_num == 8: # Pacu
+  os.system("cd pacu; source bin/activate; python3 pacu.py")
   sys.exit(0)
 else:
   print("Invalid tool selection, re-run script and try again.")
