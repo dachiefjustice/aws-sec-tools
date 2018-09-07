@@ -10,7 +10,7 @@ FROM alpine:latest
 #   - groff/less for awscli help system
 #   - bash, curl for Prowler
 #   - git for cloning from tool source repos
-RUN apk add --no-cache --update git bash curl \
+RUN apk add --no-cache --update vim git bash curl \
     python2 py2-virtualenv py2-pip python3 \
     tmux groff less \
     nodejs nodejs-npm
