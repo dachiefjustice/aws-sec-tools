@@ -15,14 +15,19 @@ RUN apk add --no-cache --update vim git bash curl \
     tmux groff less \
     nodejs nodejs-npm
 
+# Update pip
+RUN pip3 install --upgrade pip && \
+    pip2 install --upgrade pip
+
 # No need to run as root after this point
 RUN addgroup -g 1000 -S awssec && \
     adduser -u 1000 -S awssec -G awssec -s /bin/sh 
 USER awssec:awssec
 
-# Set up AWS CLI in a virtualenv
+# Set up AWS CLI in a virtualenv; system-wide autocomplete
 WORKDIR /home/awssec/
 RUN python3 -m venv awscli && \
+    echo complete -C ~/awscli/bin/aws_completer aws > ~/.bashrc && \
     source ~/awscli/bin/activate && \
     pip3 install --upgrade awscli && \
     deactivate
@@ -47,6 +52,7 @@ RUN git clone https://github.com/RhinoSecurityLabs/pacu.git && \
     python3 -m venv pacu && \
     source ~/pacu/bin/activate && \
     cd ~/pacu/ && \
+    pip3 install -I urllib3==1.22 && \
     bash ~/pacu/install.sh && \
     deactivate
 
