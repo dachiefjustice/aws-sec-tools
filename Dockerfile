@@ -10,7 +10,8 @@ FROM alpine:latest
 #   - groff/less for awscli help system
 #   - bash, curl for Prowler
 #   - git for cloning from tool source repos
-RUN apk add --no-cache --update vim git bash curl \
+#   - sudo for convenience in dev environments
+RUN apk add --no-cache --update vim git bash curl sudo \
     python2 py2-virtualenv py2-pip python3 \
     tmux groff less \
     nodejs nodejs-npm
@@ -18,6 +19,9 @@ RUN apk add --no-cache --update vim git bash curl \
 # Update pip
 RUN pip3 install --upgrade pip && \
     pip2 install --upgrade pip
+
+# Add alpine user to sudoers
+RUN echo 'awssec	ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # No need to run as root after this point
 RUN addgroup -g 1000 -S awssec && \
